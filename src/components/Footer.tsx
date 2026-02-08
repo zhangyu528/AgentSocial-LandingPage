@@ -5,7 +5,7 @@ export const Footer: React.FC = () => {
     <footer className="py-12 border-t border-slate-200 dark:border-border-dark opacity-70">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-2">
-          <div className="bg-slate-800 p-1 rounded-md text-white">
+          <div className="bg-slate-800 p-1 aspect-square rounded-md text-white flex items-center justify-center">
             <span className="material-symbols-outlined text-[14px] block">hub</span>
           </div>
           <span className="text-sm font-bold tracking-tight">AgentSocial</span>
