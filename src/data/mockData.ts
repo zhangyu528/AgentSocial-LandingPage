@@ -1,13 +1,11 @@
 export const navigationData = {
   links: [
     { label: "Features", href: "#features" },
-    { label: "Interactive Demo", href: "#demo" },
     { label: "Workflow", href: "#how-it-works" },
-    { label: "Docs", href: "#" },
+    { label: "Installation", href: "#installation" },
   ],
   cta: {
     cliLabel: "CLI",
-    startLabel: "Get Started",
   },
 };
 
@@ -17,11 +15,22 @@ export const heroData = {
     main: "Give Your AI Agent a ",
     highlight: "Social Identity",
   },
-  description: "The seamless bridge between your terminal-bound AI agents and Feishu/Lark collaboration. Move from isolated CLI prompts to team-wide collaborative execution.",
+  description: "The seamless bridge between your terminal-bound AI agents and social collaboration. Move from isolated CLI prompts to team-wide collaborative execution.",
   cta: {
-    github: "Get Started on GitHub",
-    demo: "View Demo",
+    install: "Install CLI",
   },
+  console: {
+    title: "Agent Console",
+    command: "agentsocial run --provider claude",
+    logs: [
+      { type: "info", content: "Initializing middleware bridge...", color: "text-blue-300" },
+      { type: "info", content: "Platform Webhook connected (Channel: AI-Ops)", color: "text-blue-300" },
+    ],
+    task: {
+      title: "Incoming Task",
+      content: "\"Optimize the database indexing for the users table and report back.\"",
+    }
+  }
 };
 
 export const featuresData = {
@@ -31,7 +40,7 @@ export const featuresData = {
     {
       icon: "public",
       title: "Social Connection",
-      description: "Native Feishu/Lark integration for real-time AI interaction within your existing team channels. No new tools required.",
+      description: "Native integration for real-time AI interaction within your existing team channels. No new tools required.",
     },
     {
       icon: "shield_person",
@@ -47,16 +56,16 @@ export const featuresData = {
 };
 
 export const demoData = {
-  feishu: {
-    title: "Feishu Messenger",
-    subtitle: "Lark Protocol Interface",
+  messenger: {
+    title: "Social Messenger",
+    subtitle: "Interface Bridge",
     userMessage: "Agent, please deploy the latest staging hotfix for the auth module.",
     agentPlan: {
       title: "Agent Execution Plan",
       steps: [
-        "1. Git checkout main-staging",
-        "2. Apply patch #99201",
-        "3. Run pre-deployment tests",
+        { id: "1", content: "Git checkout main-staging" },
+        { id: "2", content: "Apply patch #99201" },
+        { id: "3", content: "Run pre-deployment tests" },
       ],
       actions: ["Approve & Execute", "Modify"],
     },
@@ -73,6 +82,16 @@ export const demoData = {
   },
 };
 
+export const installationData = {
+  title: "Installation",
+  subtitle: "Get started with AgentSocial by installing our command line interface.",
+  command: "npm install @zhangyu528/agentsocial@0.1.1",
+  requirements: [
+    { icon: "check_circle", label: "Node.js 18.x or higher required" },
+    { icon: "check_circle", label: "Platform: Mac, Linux, Windows (WSL)" },
+  ]
+};
+
 export const workflowData = {
   title: "Implementation in Seconds",
   subtitle: "A streamlined flow from your local machine to enterprise collaboration.",
@@ -81,25 +100,21 @@ export const workflowData = {
       icon: "download",
       title: "1. Setup CLI",
       description: "Install the AgentSocial CLI bridge and link your favorite AI provider keys.",
-      active: true,
     },
     {
       icon: "cable",
-      title: "2. Connect Feishu",
-      description: "Initialize the Lark webhook or use our native app connector in one command.",
-      active: false,
+      title: "2. Connect Platform",
+      description: "Initialize the webhook or use our native app connector in one command.",
     },
     {
       icon: "assignment_ind",
       title: "3. Delegate Tasks",
       description: "Mention your agent in any group chat to trigger complex multi-step workflows.",
-      active: false,
     },
     {
       icon: "task_alt",
       title: "4. Approve & Run",
       description: "Review the generated execution plan on a social card and click to run safely.",
-      active: false,
     },
   ],
 };
@@ -115,13 +130,19 @@ export const technicalData = {
   ],
   description: "AgentSocial is built as a lightweight, non-custodial middleware. Your keys never leave your environment, and communication is secured via end-to-end encrypted tunnels.",
   cta: "Ready to collaborate?",
-  button: "Fork on GitHub",
+  button: "Contact Me",
+  email: "mailto:contact@agentsocial.dev",
   version: "v1.4.2-stable",
 };
 
 export const footerData = {
   brand: "AgentSocial",
   license: "MIT LICENSE",
-  links: ["GitHub", "Documentation", "Security Audit", "Contact"],
+  links: [
+    { label: "Documentation", href: "#" },
+    { label: "Security Audit", href: "#" },
+    { label: "Contact", href: "mailto:contact@agentsocial.dev" },
+  ],
   copyright: "© 2024 AgentSocial Open Source Project.",
 };
+

@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { InteractiveDemo } from "@/components/InteractiveDemo";
+import { Installation } from "@/components/Installation";
 import { Workflow } from "@/components/Workflow";
 import { TechnicalSpecs } from "@/components/TechnicalSpecs";
 import { Footer } from "@/components/Footer";
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <Features />
         <InteractiveDemo />
+        <Installation />
         <Workflow />
         <TechnicalSpecs />
       </main>

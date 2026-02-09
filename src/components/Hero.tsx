@@ -1,4 +1,5 @@
 import React from "react";
+import { heroData } from "../data/mockData";
 
 export const Hero: React.FC = () => {
   return (
@@ -12,23 +13,19 @@ export const Hero: React.FC = () => {
           <div className="flex-1 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-6 border border-primary/20">
               <span className="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-              Now supporting Gemini 1.5 & Claude 3.5
+              {heroData.badge}
             </div>
             <h1 className="text-5xl lg:text-7xl font-black leading-[1.1] mb-6 tracking-tight">
-              Give Your AI Agent a <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Social Identity</span>
+              {heroData.title.main} <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">{heroData.title.highlight}</span>
             </h1>
             <p className="text-lg lg:text-xl opacity-70 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              The seamless bridge between your terminal-bound AI agents and Feishu/Lark collaboration. Move from isolated CLI prompts to team-wide collaborative execution.
+              {heroData.description}
             </p>
-            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-              <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-xl text-lg font-bold hover:scale-105 transition-all shadow-xl shadow-primary/20">
-                <span className="material-symbols-outlined">rocket_launch</span>
-                Get Started on GitHub
-              </button>
-              <button className="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-200 dark:bg-card-dark border border-slate-300 dark:border-border-dark px-8 py-4 rounded-xl text-lg font-bold hover:bg-slate-300 dark:hover:bg-slate-800 transition-all">
-                <span className="material-symbols-outlined">play_circle</span>
-                View Demo
-              </button>
+            <div className="flex flex-col items-center lg:items-start gap-4 justify-center lg:justify-start">
+              <a className="w-full sm:w-auto flex items-center justify-center gap-2 bg-primary text-white border border-primary px-8 py-4 rounded-xl text-lg font-bold hover:brightness-110 transition-all shadow-lg shadow-primary/25" href="#installation">
+                <span className="material-symbols-outlined">terminal</span>
+                {heroData.cta.install}
+              </a>
             </div>
           </div>
 
@@ -42,24 +39,25 @@ export const Hero: React.FC = () => {
                     <div className="w-3 h-3 rounded-full bg-amber-500/50"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
                   </div>
-                  <div className="text-[10px] font-mono opacity-50 uppercase tracking-widest">Agent Console</div>
+                  <div className="text-[10px] font-mono opacity-50 uppercase tracking-widest">{heroData.console.title}</div>
                   <div className="w-10"></div>
                 </div>
                 <div className="p-6 font-mono text-sm leading-relaxed space-y-4">
                   <div className="flex gap-3">
                     <span className="text-primary font-bold">~</span>
-                    <span className="text-green-400">agentsocial run --provider claude</span>
+                    <span className="text-green-400">{heroData.console.command}</span>
                   </div>
-                  <div className="text-blue-300">[info] Initializing middleware bridge...</div>
-                  <div className="text-blue-300">[info] Feishu Webhook connected (Channel: AI-Ops)</div>
+                  {heroData.console.logs.map((log, index) => (
+                    <div key={index} className={log.color}>[info] {log.content}</div>
+                  ))}
                   <div className="flex gap-3 text-white/90">
                     <span className="text-primary font-bold">»</span>
-                    <span>Agent is listening for tasks in Feishu...</span>
+                    <span>Agent is listening for tasks in social channels...</span>
                   </div>
                   <div className="pt-4 border-t border-white/5">
                     <div className="bg-primary/10 border border-primary/20 rounded p-3">
-                      <div className="text-xs text-primary mb-1 uppercase font-bold">Incoming Task via Feishu</div>
-                      <div className="italic text-white/70">"Optimize the database indexing for the users table and report back."</div>
+                      <div className="text-xs text-primary mb-1 uppercase font-bold">{heroData.console.task.title}</div>
+                      <div className="italic text-white/70">{heroData.console.task.content}</div>
                     </div>
                   </div>
                 </div>
