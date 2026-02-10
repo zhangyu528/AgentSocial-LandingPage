@@ -85,7 +85,7 @@ export const demoData = {
 export const installationData = {
   title: "Installation",
   subtitle: "Get started with AgentSocial by installing our command line interface.",
-  command: "npm install @zhangyu528/agentsocial@0.1.1",
+  command: "npm install -g @zhangyu528/agentsocial -- @zhangyu528:registry=https://npm.pkg.github.com",
   requirements: [
     { icon: "check_circle", label: "Node.js 18.x or higher required" },
     { icon: "check_circle", label: "Platform: Mac, Linux, Windows (WSL)" },
