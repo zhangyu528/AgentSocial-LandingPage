@@ -1,9 +1,13 @@
 import React from "react";
 import { footerData } from "../data/mockData";
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  readonly className?: string;
+}
+
+export const Footer: React.FC<FooterProps> = ({ className = "" }) => {
   return (
-    <footer className="py-12 border-t border-slate-200 dark:border-border-dark opacity-70">
+    <footer className={`py-12 border-t border-slate-200 dark:border-border-dark opacity-70 ${className}`}>
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="flex items-center gap-2">
           <div className="bg-slate-800 p-1 rounded-md text-white">

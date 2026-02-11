@@ -3,13 +3,17 @@
 import React from "react";
 import { installationData } from "../data/mockData";
 
-export const Installation: React.FC = () => {
+interface InstallationProps {
+  readonly className?: string;
+}
+
+export const Installation: React.FC<InstallationProps> = ({ className = "" }) => {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(installationData.command);
   };
 
   return (
-    <section className="py-24 bg-slate-50 dark:bg-background-dark/30 scroll-mt-20" id="installation">
+    <section className={`py-24 bg-slate-50 dark:bg-background-dark/30 scroll-mt-20 ${className}`} id="installation">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">{installationData.title}</h2>
@@ -33,8 +37,8 @@ export const Installation: React.FC = () => {
               <div className="p-8 font-mono text-lg md:text-xl">
                 <div className="flex items-center gap-4">
                   <span className="text-blue-400 select-none">$</span>
-                  <code className="text-slate-300">
-                    <span className="text-pink-400">npm</span> <span className="text-green-400">install</span> <span className="text-amber-300">@zhangyu528/agentsocial@0.1.1</span>
+                  <code className="text-slate-300 break-all whitespace-pre-wrap">
+                    <span className="text-pink-400">npm</span> <span className="text-green-400">install -g</span> <span className="text-amber-300">@zhangyu528/agentsocial</span> <span className="text-slate-400">-- @zhangyu528:registry=https://npm.pkg.github.com</span>
                   </code>
                 </div>
               </div>

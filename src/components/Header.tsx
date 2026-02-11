@@ -1,9 +1,13 @@
 import React from "react";
 import { navigationData } from "../data/mockData";
 
-export const Header: React.FC = () => {
+interface HeaderProps {
+  readonly className?: string;
+}
+
+export const Header: React.FC<HeaderProps> = ({ className = "" }) => {
   return (
-    <header className="fixed top-0 w-full z-50 border-b border-slate-200 dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+    <header className={`fixed top-0 w-full z-50 border-b border-slate-200 dark:border-border-dark bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md ${className}`}>
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="bg-primary p-1.5 rounded-lg text-white">

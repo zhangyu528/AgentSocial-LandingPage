@@ -1,9 +1,13 @@
 import React from "react";
 import { demoData } from "../data/mockData";
 
-export const InteractiveDemo: React.FC = () => {
+interface InteractiveDemoProps {
+  readonly className?: string;
+}
+
+export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ className = "" }) => {
   return (
-    <section className="py-24" id="demo">
+    <section className={`py-24 ${className}`} id="demo">
       <div className="max-w-7xl mx-auto px-6">
         <div className="bg-white dark:bg-card-dark rounded-3xl border border-slate-200 dark:border-border-dark overflow-hidden shadow-2xl">
           <div className="grid lg:grid-cols-2">

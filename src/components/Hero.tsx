@@ -1,9 +1,13 @@
 import React from "react";
 import { heroData } from "../data/mockData";
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  readonly className?: string;
+}
+
+export const Hero: React.FC<HeroProps> = ({ className = "" }) => {
   return (
-    <section className="relative overflow-hidden py-24 lg:py-32">
+    <section className={`relative overflow-hidden py-24 lg:py-32 ${className}`}>
       <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none"></div>
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-primary/20 blur-[120px] rounded-full"></div>
       <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>

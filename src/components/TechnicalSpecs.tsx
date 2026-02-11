@@ -1,9 +1,13 @@
 import React from "react";
 import { technicalData } from "../data/mockData";
 
-export const TechnicalSpecs: React.FC = () => {
+interface TechnicalSpecsProps {
+  readonly className?: string;
+}
+
+export const TechnicalSpecs: React.FC<TechnicalSpecsProps> = ({ className = "" }) => {
   return (
-    <section className="py-24 border-t border-slate-200 dark:border-border-dark">
+    <section className={`py-24 border-t border-slate-200 dark:border-border-dark ${className}`}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 bg-white dark:bg-card-dark p-8 lg:p-12 rounded-3xl border border-slate-200 dark:border-border-dark shadow-xl">
           <div className="flex-1">

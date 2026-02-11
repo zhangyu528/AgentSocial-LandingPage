@@ -1,9 +1,13 @@
 import React from "react";
 import { workflowData } from "../data/mockData";
 
-export const Workflow: React.FC = () => {
+interface WorkflowProps {
+  readonly className?: string;
+}
+
+export const Workflow: React.FC<WorkflowProps> = ({ className = "" }) => {
   return (
-    <section className="py-24 bg-slate-50 dark:bg-background-dark/30" id="how-it-works">
+    <section className={`py-24 bg-slate-50 dark:bg-background-dark/30 ${className}`} id="how-it-works">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold mb-4">{workflowData.title}</h2>
