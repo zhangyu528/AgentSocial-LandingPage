@@ -84,12 +84,25 @@ export const demoData = {
 
 export const installationData = {
   title: "Installation",
-  subtitle: "Get started with AgentSocial by installing our command line interface.",
-  command: "npm install -g @zhangyu528/agentsocial --@zhangyu528:registry=https://npm.pkg.github.com",
+  subtitle: "Get started with AgentSocial by installing the global CLI tool via our GitHub package registry.",
+  steps: [
+    {
+      title: "Authenticate with GitHub",
+      commands: ["gh auth login", "gh auth refresh -s read:packages"],
+    },
+    {
+      title: "Configure NPM Token",
+      commands: ["npm config set //npm.pkg.github.com/:_authToken=$(gh auth token)"],
+    },
+    {
+      title: "Install Global Package",
+      commands: ["npm install -g @zhangyu528/agentsocial --@zhangyu528:registry=https://npm.pkg.github.com"],
+    },
+  ],
   requirements: [
     { icon: "check_circle", label: "Node.js 18.x or higher required" },
-    { icon: "check_circle", label: "Platform: Mac, Linux, Windows (WSL)" },
-  ]
+    { icon: "check_circle", label: "GitHub CLI (gh) required for auth sync" },
+  ],
 };
 
 export const workflowData = {

@@ -8,8 +8,8 @@ interface InstallationProps {
 }
 
 export const Installation: React.FC<InstallationProps> = ({ className = "" }) => {
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(installationData.command);
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
   };
 
   return (
@@ -29,17 +29,42 @@ export const Installation: React.FC<InstallationProps> = ({ className = "" }) =>
                   <div className="w-3 h-3 rounded-full bg-amber-500/50"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
                 </div>
-                <div className="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-bold">Terminal</div>
-                <button className="text-slate-400 hover:text-white transition-colors" onClick={copyToClipboard}>
-                  <span className="material-symbols-outlined text-[20px]">content_copy</span>
-                </button>
+                <div className="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-bold">Terminal - AgentSocial Auth-Sync</div>
+                <div className="w-4"></div>
               </div>
-              <div className="p-8 font-mono text-lg md:text-xl">
-                <div className="flex items-center gap-4">
-                  <span className="text-blue-400 select-none">$</span>
-                  <code className="text-slate-300 break-all whitespace-pre-wrap">
-                    <span className="text-pink-400">npm</span> <span className="text-green-400">install -g</span> <span className="text-amber-300">@zhangyu528/agentsocial</span> <span className="text-slate-400">-- @zhangyu528:registry=https://npm.pkg.github.com</span>
-                  </code>
+              <div className="p-8 font-mono text-sm md:text-base">
+                <div className="space-y-8">
+                  {installationData.steps.map((step, stepIdx) => (
+                    <div key={stepIdx} className="group/cmd">
+                      <div className="text-slate-500 mb-1"># {stepIdx + 1}. {step.title}</div>
+                      <div className="flex items-start gap-3">
+                        <span className="text-blue-400 select-none">$</span>
+                        <div className="flex-1 space-y-1">
+                          {step.commands.map((cmd, cmdIdx) => (
+                            <div key={cmdIdx} className="flex items-center justify-between group/line">
+                              <code className="text-slate-300 break-all">
+                                {cmd.split(' ').map((word, wordIdx) => {
+                                  if (word === 'gh' || word === 'npm') return <span key={wordIdx} className="text-pink-400">{word} </span>;
+                                  if (word.startsWith('-')) return <span key={wordIdx} className="text-blue-400">{word} </span>;
+                                  if (word === 'install' || word === 'auth' || word === 'login' || word === 'refresh' || word === 'config' || word === 'set' || word === 'token') {
+                                    return <span key={wordIdx} className={word === 'install' ? 'text-green-400' : 'text-slate-300'}>{word} </span>;
+                                  }
+                                  if (word.includes('@') || word.includes('read:packages')) return <span key={wordIdx} className="text-amber-300">{word} </span>;
+                                  return word + ' ';
+                                })}
+                              </code>
+                              <button 
+                                className="text-slate-600 hover:text-white transition-colors opacity-0 group-hover/line:opacity-100"
+                                onClick={() => copyToClipboard(cmd)}
+                              >
+                                <span className="material-symbols-outlined text-[16px]">content_copy</span>
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
